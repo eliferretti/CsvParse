@@ -39,4 +39,4 @@ jobs:
           app-name: 'avaliacoes'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_09C92C5005B545BD9F21FA4D1953E671 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ABBA435E04D049D8AF6155E783F4FD98 }}
