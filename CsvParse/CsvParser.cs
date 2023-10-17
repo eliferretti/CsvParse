@@ -38,9 +38,9 @@ namespace CsvParse
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
-            string json = "[{\"name\" : \"eli\"}]";
+            string json = "{\"name\" : \"eli\"}";
 
-            return new OkObjectResult(_csvHelper.ConvertToJson(json));
+            return new OkObjectResult(json);
         }
     }
 }
