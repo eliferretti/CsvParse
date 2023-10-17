@@ -1,4 +1,4 @@
-﻿namespace CsvParse
+﻿namespace CsvParse.Entity
 {
     public class StudentFinal : Student
     {
