@@ -1,4 +1,4 @@
-﻿namespace CsvParse
+﻿namespace CsvParse.Contract
 {
     public interface ICsvHelper
     {

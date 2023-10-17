@@ -4,6 +4,8 @@ using System.Globalization;
 using System.IO;
 using System;
 using Newtonsoft.Json;
+using CsvParse.Contract;
+using CsvParse.Entity;
 
 namespace CsvParse
 {
