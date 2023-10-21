@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Xml.Linq;
+using CsvParse.Aplication.Interfaces;
 
 namespace CsvParse
 {
     public class CsvParser
     {
-        private readonly ICsvHelper _csvHelper;
+        private readonly ICsvTools _csvTools;
 
-        public CsvParser(ICsvHelper csvHelper)
+        public CsvParser(ICsvTools csvTools)
         {
-            _csvHelper = csvHelper;
+            _csvTools = csvTools;
         }
 
         [FunctionName("CsvParser")]
@@ -28,7 +29,7 @@ namespace CsvParse
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             string base64Csv = data?.file;
             
-            return new OkObjectResult(_csvHelper.ConvertToJson(base64Csv));
+            return new OkObjectResult(_csvTools.ConvertToJson(base64Csv));
         }
     }
 }

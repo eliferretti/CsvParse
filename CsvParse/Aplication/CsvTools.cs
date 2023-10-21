@@ -4,10 +4,12 @@ using System.Globalization;
 using System.IO;
 using System;
 using Newtonsoft.Json;
+using CsvParse.Aplication.Interfaces;
+using CsvParse.Aplication.Dtos;
 
-namespace CsvParse
+namespace CsvParse.Aplication
 {
-    public class CsvHelper : ICsvHelper
+    public class CsvTools : ICsvTools
     {
         public string ConvertToJson(string base64Csv)
         {
@@ -17,13 +19,13 @@ namespace CsvParse
             using (var reader = new StreamReader(memoryStream))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                var students = csv.GetRecords<Student>();
+                var students = csv.GetRecords<StudentInputDto>();
 
-                List<StudentFinal> studentsFinal = new();
+                List<StudentResultDto> studentsFinal = new();
 
                 foreach (var student in students)
                 {
-                    var studentFinal = new StudentFinal
+                    var studentFinal = new StudentResultDto
                     {
                         Registration = student.Registration,
                         Name = student.Name,
@@ -38,7 +40,7 @@ namespace CsvParse
                     studentsFinal.Add(studentFinal);
                 }
 
-                return Newtonsoft.Json.JsonConvert.SerializeObject(studentsFinal, Formatting.Indented);
+                return JsonConvert.SerializeObject(studentsFinal, Formatting.Indented);
             }
         }
     }

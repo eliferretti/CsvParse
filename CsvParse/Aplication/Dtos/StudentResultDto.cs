@@ -1,6 +1,6 @@
-﻿namespace CsvParse
+﻿namespace CsvParse.Aplication.Dtos
 {
-    public class StudentFinal : Student
+    public class StudentResultDto : StudentInputDto
     {
         public float AveragePoints { get; set; }
         public bool IsAproved { get; set; }
